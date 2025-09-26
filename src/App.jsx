@@ -1,35 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <main className = "min-h-dvh grid place-items-center bg-slate-50">
+    <h1 className = "text-3x1 font-bold tex-slate-800">
+      Hello Tailwind + React!
+      </h1>
+      <div className=" container mx-auto p-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className ="rounded-2x1 border p-4 bg-white shadow-sm">Card A</div>
+        <div className ="rounded-2x1 border p-4 bg-white shadow-sm">Card B</div>
+        <div className ="rounded-2x1 border p-4 bg-white shadow-sm">Card C</div>
       </div>
-      <h1>Davi Baptista</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </main>
+  );
 }
-
 export default App
