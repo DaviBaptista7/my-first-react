@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Card } from "./components/Card";
 import { Hello } from "./components/Hello";
 
 const App = () => {
+  const [count,setCount] = useState(0)
   const CARDS = [
     {
       id: 0,
@@ -19,6 +21,7 @@ const App = () => {
       description: 'Olá eu sou filho do card C'
     }
   ]
+  const inc = () => setCount(c => c + 1)
   return (
     <main className = "min-h-dvh grid place-items-center bg-slate-50">
     <h1 className = "text-3xl font-bold tex-slate-800">
@@ -35,6 +38,9 @@ const App = () => {
 Link com foco
       </a>
       <Hello name="Davi"/>
+       <button onClick={inc} className="bg-blue-500 text-neutral-50 px-4 py-2 rounded-2xl cursor-pointer">
+Count: {count}
+       </button>
     </main>
   );
 }
