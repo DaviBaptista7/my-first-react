@@ -6,7 +6,8 @@ import { TextField } from "./components/TextField";
 const App = () => {
   const [count,setCount] = useState(0)
   const [name,setName] = useState("")
-   
+  const [email,setEmail]= useState("")
+  const [password, setPassword]= useState("")
   const CARDS = [
     {
       id: 0,
@@ -25,6 +26,10 @@ const App = () => {
     }
   ]
   const inc = () => setCount(c => c + 1)
+  const handleSubmit = event => {
+    event.preventDefault()
+    console.log ({name, email, password})
+  }
   return (
     <main className = "min-h-dvh grid place-items-center bg-slate-50">
     <h1 className = "text-3xl font-bold tex-slate-800">
@@ -44,12 +49,42 @@ Link com foco
        <button onClick={inc} className="bg-blue-500 text-neutral-50 px-4 py-2 rounded-2xl cursor-pointer">
 Count: {count}
        </button>
-       <form>
+       <form onSubmit={handleSubmit}>
 <TextField
 id= 'name'
+name="fullName"
 label= "Nome completo"
+placeholder= "Digite seu nome completo"
+type="text"
 value= {name}
-onChange= {event => setName(event.target.value)}/>
+onChange= {event => setName(event.target.value)}
+/>
+
+<TextField
+id= 'email'
+name="email"
+label= "Email"
+placeholder= "Digite seu email"
+type="email"
+value= {email}
+onChange= {event => setEmail(event.target.value)}
+/>
+
+<TextField
+id= 'password'
+name="password"
+label= "Senha"
+placeholder= "Digite sua senha"
+type="password"
+value= {password}
+onChange= {event => setPassword(event.target.value)}
+/>
+
+<button
+type="submit"
+className= " bg-blue-500 text-neutral-50 px-4 py-2 rounded-2xl cursor-pointer text-center w-full">
+  Enviar
+</button>
        </form>
     </main>
   );
